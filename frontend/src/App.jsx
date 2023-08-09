@@ -11,12 +11,14 @@ import Browse from './components/Browse';
 import ManageUser from './components/ManageUser';
 import { Toaster } from 'react-hot-toast';
 import UpdateUser from './components/UpdateUser';
+import { UserProvider } from './UserContext';
 
 function App() {
   return (
     <div>
       <Toaster position='top-center' />
       <BrowserRouter>
+      <UserProvider>
         <Navbar />
         
           <Routes>
@@ -31,6 +33,7 @@ function App() {
             <Route path='manageuser' element={ <ManageUser /> } />
             <Route path='updateuser/:id' element={ <UpdateUser /> } />
           </Routes>
+          </UserProvider>
       </BrowserRouter>
     </div>
   );
